@@ -67,3 +67,7 @@ The "number" parameter is the temperature value you want to convert
     k_to_c(number)          Convert Kelvin to Celsius
     f_to_k(number)          Convert Fahrenheit to Kelvin
     k_to_f(number)          Convert Kelvin to Fahrenheit
+    
+Install
+-------
+    pip install GhuConst
