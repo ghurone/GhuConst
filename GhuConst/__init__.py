@@ -20,6 +20,8 @@ Boltzmann                           Boltzmann constant
 Stefan-Boltzmann                    Stefan-Boltzmann constant
 Bohr_Radius                         Bohr radius
 atm                                 standard atmosphere
+Wien                                Wien Constant (wavelength)
+Rydberg                             Rydberg Constant
 mass_electron                       electron mass
 mass_proton                         proton mass
 mass_neutron                        neutron mass

@@ -1,45 +1,4 @@
-def parser(table):
-    """
-     Receives a list that each element is a line from the CODATA file. The function returns a dictionary, the keys
-    are the names of the constants, and the values ​​are tuples that contain the value, the unit and the uncertainty.
-
-    const[name] = (value, unit, uncertainty)
-    """
-    const = {}
-    for line in table:
-        name = line[:60].rstrip()
-        value = float(line[60:85].replace(' ', '').replace('...', ''))
-        uncer = float(line[85:110].replace(' ', '').replace('(exact)', '0'))
-        uni = line[110:].rstrip()
-        const[name] = (value, uni, uncer)
-
-    return const
-
-
-def val(name):
-    """Receives a constant's name and return its value"""
-    if name in phys_const:
-        return phys_const[name][0]
-    else:
-        return 0
-
-
-def unit(name):
-    """Receives a constant's name and return its unit"""
-    if name in phys_const:
-        return phys_const[name][1]
-    else:
-        return 0
-
-
-def uncertainty(name):
-    """Receives a constant's name and return its uncertainty"""
-    if name in phys_const:
-        return phys_const[name][2]
-    else:
-        return 0
-
-
+# Codata String
 content_string = """alpha particle-electron mass ratio                          7294.299 541 42          0.000 000 24             
 alpha particle mass                                         6.644 657 3357 e-27      0.000 000 0020 e-27      kg
 alpha particle mass energy equivalent                       5.971 920 1914 e-10      0.000 000 0018 e-10      J
@@ -394,6 +353,51 @@ weak mixing angle                                           0.222 90            
 Wien frequency displacement law constant                    5.878 925 757... e10     (exact)                  Hz K^-1
 Wien wavelength displacement law constant                   2.897 771 955... e-3     (exact)                  m K
 W to Z mass ratio                                           0.881 53                 0.000 17                 """
+
+# Functions
+
+
+def parser(table):
+    """
+     Receives a list that each element is a line from the CODATA file. The function returns a dictionary, the keys
+    are the names of the constants, and the values ​​are tuples that contain the value, the unit and the uncertainty.
+
+    const[name] = (value, unit, uncertainty)
+    """
+    const = {}
+    for line in table:
+        name = line[:60].rstrip()
+        value = float(line[60:85].replace(' ', '').replace('...', ''))
+        uncer = float(line[85:110].replace(' ', '').replace('(exact)', '0'))
+        uni = line[110:].rstrip()
+        const[name] = (value, uni, uncer)
+
+    return const
+
+
+def val(name):
+    """Receives a constant's name and return its value"""
+    if name in phys_const:
+        return phys_const[name][0]
+    else:
+        return 0
+
+
+def unit(name):
+    """Receives a constant's name and return its unit"""
+    if name in phys_const:
+        return phys_const[name][1]
+    else:
+        return 0
+
+
+def uncertainty(name):
+    """Receives a constant's name and return its uncertainty"""
+    if name in phys_const:
+        return phys_const[name][2]
+    else:
+        return 0
+
 
 content_list = content_string.split('\n')
 phys_const = parser(content_list)  # dict with all constants

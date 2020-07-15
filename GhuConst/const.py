@@ -18,6 +18,8 @@ Boltzmann = val('Boltzmann constant')
 Stefan_Boltzmann = val('Stefan-Boltzmann constant')
 Bohr_Radius = val('Bohr radius')
 atm = val('standard atmosphere')
+Wien = val('Wien wavelength displacement law constant')
+Rydberg = val('Rydberg constant')
 
 # Some mass
 mass_electron = val('electron mass')
